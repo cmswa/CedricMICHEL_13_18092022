@@ -1,10 +1,11 @@
 import React from 'react'
+import securityIcon from '../assets/icons/icon-security.png'
 
 export default function FeatureSecurity() {
     return (
         <div class="feature-item">
             <img
-                src="./img/icon-security.png"
+                src={securityIcon}
                 alt="Chat Icon"
                 class="feature-icon"
             />

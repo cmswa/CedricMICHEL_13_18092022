@@ -1,10 +1,11 @@
 import React from 'react'
+import moneyIcon from '../assets/icons/icon-money.png'
 
 export default function FeatureMoney() {
     return (
         <div class="feature-item">
             <img
-                src="./img/icon-money.png"
+                src={moneyIcon}
                 alt="Chat Icon"
                 class="feature-icon"
             />
