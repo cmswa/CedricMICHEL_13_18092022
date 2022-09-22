@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function FormSignIn() {
     return (
@@ -19,7 +20,8 @@ export default function FormSignIn() {
                     <input type="checkbox" id="remember-me" /><label for="remember-me"
                     >Remember me</label>
                 </div>
-                <a href="./user.html" class="sign-in-button">Sign In</a>
+                <Link to='/profile' class="sign-in-button">Sign In</Link>
+                {/* <a href="./user.html" class="sign-in-button">Sign In</a> */}
                 {/* <button class="sign-in-button">Sign In</button> */}
             </form>
         </section>
