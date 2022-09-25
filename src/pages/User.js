@@ -6,16 +6,16 @@ import UserHeader from '../Components/UserHeader'
 
 export default function User() {
     return (
-        <body>
+        <>
             <Header />
-            <main class="main bg-dark">
+            <main className="main bg-dark">
                 <UserHeader />
-                <h2 class="sr-only">Accounts</h2>
+                <h2 className="sr-only">Accounts</h2>
                 <Transaction />
                 <Transaction />
                 <Transaction />
             </main>
             <Footer />
-        </body>
+        </>
     )
 }

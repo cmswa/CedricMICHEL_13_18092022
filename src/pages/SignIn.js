@@ -5,12 +5,12 @@ import Header from '../Components/Layout/Header'
 
 export default function SignIn() {
     return (
-        <body>
+        <>
             <Header />
-            <main class="main bg-dark">
+            <main className="main bg-dark">
                 <FormSignIn />
             </main>
             <Footer />
-        </body>
+        </>
     )
 }

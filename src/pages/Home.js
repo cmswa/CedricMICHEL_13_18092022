@@ -8,17 +8,17 @@ import FeatureSecurity from '../Components/FeatureSecurity';
 
 export default function Home() {
     return (
-        <body>
+        <>
             <Header />
             <main>
                 <Banner />
-                <section class="features">
+                <section className="features">
                     <FeatureContact />
                     <FeatureMoney />
                     <FeatureSecurity />
                 </section>
             </main>
             <Footer />
-        </body>
+        </>
     )
 }
