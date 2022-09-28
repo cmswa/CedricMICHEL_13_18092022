@@ -11,7 +11,9 @@ import { Provider } from 'react-redux';
 // import thunk from 'redux-thunk';
 // import { combineReducers } from '@reduxjs/toolkit';
 // const rootReducer = combineReducers({});
-import { store } from './app/store'
+
+// import { store } from './app/store'
+import store from './utils/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
