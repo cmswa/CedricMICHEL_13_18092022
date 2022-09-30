@@ -39,7 +39,7 @@ export default function FormSignIn() {
     // }
 
     const token = useSelector(selectToken);
-    console.log(token);
+    // console.log(token);
     const dispatch = useDispatch();
     let navigate = useNavigate();
 

@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { selectToken } from "../utils/selectors";
 
 const initialState = {
   status: "void",
@@ -6,7 +7,7 @@ const initialState = {
   error: null,
 };
 
-const selectToken = (state) => state.token;
+// const selectToken = (state) => state.token;
 
 export function fetchOrUpdateToken(identifiers) {
   return async (dispatch, getState) => {
