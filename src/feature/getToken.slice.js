@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAction, createSlice } from "@reduxjs/toolkit";
 import { selectToken } from "../utils/selectors";
 
 const initialState = {
@@ -70,7 +70,14 @@ const { actions, reducer } = createSlice({
       }
       return;
     },
+    reset: (draft) => {
+      draft.status = "void";
+      draft.error = null;
+      draft.data = null;
+    },
   },
 });
+
+export const resetToken = createAction("token/reset");
 
 export default reducer;

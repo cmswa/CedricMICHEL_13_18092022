@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { useState, useEffect } from 'react'
-import { fetchOrUpdateToken } from "../feature/getToken.slice"
+import { fetchOrUpdateToken, resetToken } from "../feature/getToken.slice"
 import { selectToken } from "../utils/selectors"
 import { useNavigate } from "react-router-dom"
 
@@ -39,7 +39,7 @@ export default function FormSignIn() {
     // }
 
     const token = useSelector(selectToken);
-    // console.log(token);
+    console.log(token);
     const dispatch = useDispatch();
     let navigate = useNavigate();
 
@@ -49,8 +49,13 @@ export default function FormSignIn() {
 
     useEffect(() => {
         if (token.data?.status === 200) navigate("/profile");
-        if (token.data?.status === 400) alert(token.data.message);
-    }, [token, navigate]);
+        //     if (token.data?.status === 400) alert(token.data.message);
+        // }, [token, navigate]);
+        if (token.data?.status === 400) {
+            alert(token.data.message);
+            dispatch(resetToken());
+        }
+    }, [token, navigate, dispatch]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
