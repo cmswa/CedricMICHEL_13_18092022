@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle, faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from 'react-redux';
 import { resetToken } from '../../feature/getToken.slice';
+import '../../styles/Components/Header.css'
 
 export default function Header({ firstNameUser }) {
     const dispatch = useDispatch();
@@ -26,11 +27,11 @@ export default function Header({ firstNameUser }) {
                         Sign In
                     </Link> */}
                     {firstNameUser ? (
-                        <div className="main-nav-item">
-                            <NavLink to="/profile">
+                        <div className="main-nav-item sign-out">
+                            <NavLink className="main-nav-item__firstName" to="/profile">
                                 <div className="underline-text">
-                                    <FontAwesomeIcon icon={faUserCircle} />
-                                    {firstNameUser}
+                                    <FontAwesomeIcon className='main-nav-item__icons' icon={faUserCircle} />
+                                    <div className="underline-text__firstName"> {firstNameUser} </div>
                                 </div>
                             </NavLink>
                             <NavLink to="/"
@@ -38,7 +39,7 @@ export default function Header({ firstNameUser }) {
                             >
                                 <div className="underline-text"
                                     onClick={() => { dispatch(resetToken()) }}>
-                                    <FontAwesomeIcon icon={faRightFromBracket} />
+                                    <FontAwesomeIcon className='main-nav-item__icons' icon={faRightFromBracket} />
                                     Sign Out
                                 </div>
                             </NavLink>
@@ -46,7 +47,7 @@ export default function Header({ firstNameUser }) {
                     ) : (
                         <NavLink to="/login">
                             <div className="main-nav-item sign-in underline-text">
-                                <FontAwesomeIcon icon={faUserCircle} />
+                                <FontAwesomeIcon className='main-nav-item__icons fa-circle-user--off' icon={faUserCircle} />
                                 Sign In
                             </div>
                         </NavLink>

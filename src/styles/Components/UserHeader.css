@@ -1,3 +1,51 @@
 .edit-off {
     display: none;
 }
+
+.editNamesUser {
+    /* display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0px 18px; */
+    /* width: 45%; */
+    width: 450px;
+    margin: auto;
+    padding-top: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.edit-button--NamesUser {
+    width: 25%;
+    margin-right: 10px;
+}
+
+.editNamesUser input {
+    height: 35px;
+    padding-left: 10px;
+    margin-right: 10px;
+}
+
+@media (max-width: 850px) {
+    .editNamesUser {
+        width: 60%;
+    }
+}
+
+@media (max-width: 660px) {
+    .editNamesUser {
+        width: 80%;
+    }
+}
+
+@media (max-width: 495px) {
+    .editNamesUser {
+        width: 85%;
+    }
+    .editNamesUser input {
+        width: 44%;
+    }
+    .edit-button--NamesUser {
+        width: 70px;
+    }
+}

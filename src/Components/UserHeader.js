@@ -38,8 +38,8 @@ export default function UserHeader({ firstNameUser, lastNameUser }) {
                 <div className="editNamesUser">
                     <input type="text" placeholder={firstNameUser} onChange={(e) => setEditedFirstName(e.target.value)} />
                     <input type="text" placeholder={lastNameUser} onChange={(e) => setEditedLastName(e.target.value)} />
-                    <button className="edit-button" onClick={() => handleSubmit()}>Save</button>
-                    <button className="edit-button" onClick={() => setEdit(false)}>Cancel</button>
+                    <button className="edit-button edit-button--NamesUser" onClick={() => handleSubmit()}>Save</button>
+                    <button className="edit-button edit-button--NamesUser" onClick={() => setEdit(false)}>Cancel</button>
 
                 </div>
             </div>
