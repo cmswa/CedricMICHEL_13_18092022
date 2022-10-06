@@ -2,21 +2,21 @@ import React from 'react'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import '../styles/Components/UserHeader.css'
-import { selectEditedNames, selectToken } from '../utils/selectors';
+import { selectToken } from '../utils/selectors';
 import { sendEditedUserNames } from '../feature/sendUser.slice';
 import { fetchOrUpdateUser } from '../feature/getUser.slice';
 
 export default function UserHeader({ firstNameUser, lastNameUser }) {
 
     const [edit, setEdit] = useState(false);
-    const [editedFirstNamne, setEditedFirstName] = useState("");
+    const [editedFirstName, setEditedFirstName] = useState("");
     const [editedLastName, setEditedLastName] = useState("");
-    const editedUserNames = { firstNameUser: editedFirstNamne, lastNameUser: editedLastName }
+    const editedUserNames = { firstName: editedFirstName, lastName: editedLastName }
     console.log(editedUserNames);
 
     const token = useSelector(selectToken);
-    const editNames = useSelector(selectEditedNames);
-    console.log(editNames);
+    // const editNames = useSelector(selectEditedNames);
+    // console.log(editNames);
 
     const dispatch = useDispatch();
 

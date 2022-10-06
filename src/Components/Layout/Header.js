@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle, faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from 'react-redux';
-import resetToken from '../../feature/getToken.slice';
+import { resetToken } from '../../feature/getToken.slice';
 
 export default function Header({ firstNameUser }) {
     const dispatch = useDispatch();
@@ -27,7 +27,7 @@ export default function Header({ firstNameUser }) {
                     </Link> */}
                     {firstNameUser ? (
                         <div className="main-nav-item">
-                            <NavLink to="/user">
+                            <NavLink to="/profile">
                                 <div className="underline-text">
                                     <FontAwesomeIcon icon={faUserCircle} />
                                     {firstNameUser}

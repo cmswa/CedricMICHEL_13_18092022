@@ -19,6 +19,7 @@ export default function User() {
     }, [dispath, token])
 
     const firstNameUser = user.data?.body.firstName;
+    console.log(firstNameUser);
     const lastNameUser = user.data?.body.lastName;
 
     return (
