@@ -1,0 +1,278 @@
+swagger: '2.0'
+info:
+  title: Transaction API
+  description: This is the proposed API model for transactions.
+  version: '1.0.0'
+  termsOfService: 'http://swagger.io/terms/'
+host: localhost:3001
+basePath: /api/v1
+schemes:
+  - http
+  
+paths:
+  /user/transactions:
+    get:
+      tags:
+      - User Transaction
+      summary: User Transaction API
+      description: API for fetching a user transaction
+      operationId: fetchingTransaction
+      produces:
+      - application/json
+      parameters:
+      - in: header
+        name: Authorization
+        description: Attach Bearer JWT token
+        required: true
+        type: string
+      responses:
+        '200':
+          description: Transaction retrieved successfully
+          schema:
+            $ref: '#/definitions/Transaction'
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      security:
+      - Bearer: []
+
+  /user/transactions/{id}/details:
+    get:
+      tags:
+      - User Transaction
+      summary: User Transation details API
+      description: API for fetching a user transaction details
+      operationId: fetchingTransactionDetails
+      produces:
+      - application/json
+      parameters:
+      - in: header
+        name: Authorization
+        description: Attach Bearer JWT token
+        type: string
+        required: true
+      - name: id
+        in: path
+        description: id of the transaction needed to be updated
+        required: true
+        type: string
+      responses:
+        '200':
+          description: Transaction retrieved successfully
+          schema:
+            $ref: '#/definitions/Details'
+        '400':
+          description: Invalid Fields
+
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      security:
+      - Bearer: []
+
+  /user/transactions/{id}/category:
+    put:
+      tags:
+      - User Transaction
+      summary: User Transaction category API
+      description: API for updating a transaction category
+      operationId: updatingCategory
+      produces:
+      - application/json
+      parameters:
+      - in: header
+        name: Authorization
+        description: Attach Bearer JWT token
+        type: string
+        required: true
+      - in: body
+        name: Category
+        description: Transaction updated category
+        schema:
+          $ref: '#/definitions/Category'
+        required: true
+      - name: id
+        in: path
+        description: id of the transaction needed to be updated
+        required: true
+        type: string
+      responses:
+        '200':
+          description: Category updated successfully
+          schema:
+            $ref: '#/definitions/CategoryUpdated'
+        '400':
+          description: Invalid Fields
+        '401':
+          description: UnAutorized
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      security:
+      - Bearer: []
+
+  /user/transactions/{id}/note:
+    put:
+      tags:
+      - User Transaction
+      summary: User Transaction note API
+      description: API for updating a note 
+      operationId: updatingNote
+      produces:
+      - application/json
+      parameters:
+      - in: header
+        name: Authorization
+        description: Attach Bearer JWT token
+        type: string
+        required: true
+      - in: body
+        name: Note
+        description: Transaction updated note
+        schema:
+          $ref: '#/definitions/Note'
+        required: true
+      - name: id
+        in: path
+        description: id of the transaction needed to be updated
+        required: true
+        type: string
+      responses:
+        '200':
+          description: Note updated successfully
+          schema:
+            $ref: '#/definitions/NoteUpdated'
+        '400':
+          description: Invalid Fields
+        '401':
+          description: UnAutorized
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      security:
+      - Bearer: []
+    delete:
+      tags:
+      - User Transaction
+      summary: User Transaction note API
+      description: API for deleting a note 
+      operationId: deletingNote
+      produces:
+      - application/json
+      parameters:
+      - in: header
+        name: Authorization
+        description: Attach Bearer JWT token
+        type: string
+        required: true
+      - in: body
+        name: Note
+        description: Transaction deleted note
+        schema:
+          $ref: '#/definitions/Note'
+        required: true
+      - name: id
+        in: path
+        description: id of the transaction needed to be deleted
+        required: true
+        type: string
+      responses:
+        '200':
+          description: Note deleted successfully
+        '400':
+          description: Invalid Fields
+        '401':
+          description: UnAutorized
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      security:
+      - Bearer: []
+
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Autorization
+    in: header    
+definitions:
+  Transaction:
+    type: object
+    properties:
+      status:
+        type: integer
+      message:
+        type: string
+      body:
+        type: object
+        properties:
+         id:
+          type: string
+         date:
+          type: string
+         description:
+          type: string
+         amount:
+          type: number
+         balance:
+          type: number
+  Details:
+    type: object
+    properties:
+      status:
+        type: integer
+      message:
+        type: string
+      body:
+        type: object
+        properties:
+         id:
+          type: string
+         transactiontype:
+          type: string
+         category:
+          type: string
+         notes:
+          type: string
+  CategoryUpdated:
+    type: object
+    properties:
+      status:
+        type: integer
+      message:
+        type: string
+      body:
+        type: object
+        properties:
+          id:
+            type: string
+          categoryUpdated:
+            type: string
+  NoteUpdated:
+    type: object
+    properties:
+      status:
+        type: integer
+      message:
+        type: string
+      body:
+        type: object
+        properties:
+          id:
+            type: string
+          noteUpdated:
+            type: string
+  Category:
+    type: object
+    properties:
+      category:
+          type: string
+  Note:
+    type: object
+    properties:
+      note:
+          type: string
