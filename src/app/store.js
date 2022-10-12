@@ -1,12 +1,4 @@
-//Redux toolkit (tous les reducers seront combinés ici)
-
-import { configureStore, combineReducers, createSlice } from "@reduxjs/toolkit";
-// const rootReducer = combineReducers({});
-
-// export default configureStore({
-//     reducer: rootReducer,
-//     devTools: process.env.NODE_ENV !== "production",
-// })
+import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 const tokenSlice = createSlice({
     name: "token",

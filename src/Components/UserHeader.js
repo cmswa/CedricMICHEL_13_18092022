@@ -12,11 +12,8 @@ export default function UserHeader({ firstNameUser, lastNameUser }) {
     const [editedFirstName, setEditedFirstName] = useState("");
     const [editedLastName, setEditedLastName] = useState("");
     const editedUserNames = { firstName: editedFirstName, lastName: editedLastName }
-    // console.log(editedUserNames);
 
     const token = useSelector(selectToken);
-    // const editNames = useSelector(selectEditedNames);
-    // console.log(editNames);
 
     const dispatch = useDispatch();
 
@@ -25,10 +22,7 @@ export default function UserHeader({ firstNameUser, lastNameUser }) {
     };
 
     const handleSubmit = () => {
-        console.log(editedUserNames);
-
         dispatch(sendEditedUserNames(token, editedUserNames));
-        // dispatch(fetchOrUpdateUser(token));
         setTimeout(refreshPage, 50);
         setEdit(false)
     };

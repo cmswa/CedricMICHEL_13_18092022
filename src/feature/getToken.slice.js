@@ -7,8 +7,6 @@ const initialState = {
   error: null,
 };
 
-// const selectToken = (state) => state.token;
-
 export function fetchOrUpdateToken(identifiers) {
   return async (dispatch, getState) => {
     const status = selectToken(getState()).status;

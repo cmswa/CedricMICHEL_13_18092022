@@ -22,10 +22,6 @@ export default function Header({ firstNameUser }) {
                     <h1 className="sr-only">Argent Bank</h1>
                 </Link>
                 <div>
-                    {/* <Link to='/login' className="main-nav-item">
-                        <i className="fa fa-user-circle"></i>
-                        Sign In
-                    </Link> */}
                     {firstNameUser ? (
                         <div className="main-nav-item sign-out">
                             <NavLink className="main-nav-item__firstName" to="/profile">
@@ -35,7 +31,6 @@ export default function Header({ firstNameUser }) {
                                 </div>
                             </NavLink>
                             <NavLink to="/"
-                            //  onClick={() => dispatch(getToken(""))}
                             >
                                 <div className="underline-text"
                                     onClick={() => { dispatch(resetToken()) }}>

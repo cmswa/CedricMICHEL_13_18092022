@@ -7,38 +7,7 @@ import { useNavigate } from "react-router-dom"
 
 export default function FormSignIn() {
 
-    // const state = useSelector((state) => console.log(state));
-
-    // const dispatch = useDispatch();
-
-    // const [userEmail, setUserEmail] = useState("");
-    // const [userPassword, setUserPassword] = useState("");
-
-    // const identifiers = { email: userEmail, password: userPassword };
-
-    // const options = {
-    //     method: "POST",
-    //     headers: {
-    //         "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(identifiers),
-    // };
-
-    // async function sendIdentifiers() {
-    //     await fetch("http://localhost:3001/api/v1/user/login", options)
-    //         .then((res) =>
-    //             res.json().then((res) => {
-    //                 if (res.status === 200) {
-    //                     dispatch(getToken(res.body.token));
-    //                 } else {
-    //                     console.log(res.message);
-    //                 }
-    //             })
-    //         );
-    // }
-
     const token = useSelector(selectToken);
-    console.log(token);
     const dispatch = useDispatch();
     let navigate = useNavigate();
 
@@ -48,8 +17,6 @@ export default function FormSignIn() {
 
     useEffect(() => {
         if (token.data?.status === 200) navigate("/profile");
-        //     if (token.data?.status === 400) alert(token.data.message);
-        // }, [token, navigate]);
         if (token.data?.status === 400) {
             alert(token.data.message);
             dispatch(resetToken());
@@ -79,8 +46,6 @@ export default function FormSignIn() {
                     <input type="checkbox" id="remember-me" /><label htmlFor="remember-me"
                     >Remember me</label>
                 </div>
-                {/* <Link to='/profile' className="sign-in-button">Sign In</Link> */}
-                {/* <a href="./user.html" className="sign-in-button">Sign In</a> */}
                 <button className="sign-in-button">Sign In</button>
             </form>
         </section>

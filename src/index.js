@@ -6,13 +6,6 @@ import { BrowserRouter } from 'react-router-dom'
 
 //Redux
 import { Provider } from 'react-redux';
-// import { applyMiddleware, configureStore } from '@reduxjs/toolkit';
-// import { composeWithDevTools } from 'redux-devtools-extension';
-// import thunk from 'redux-thunk';
-// import { combineReducers } from '@reduxjs/toolkit';
-// const rootReducer = combineReducers({});
-
-// import { store } from './app/store'
 import store from './utils/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
